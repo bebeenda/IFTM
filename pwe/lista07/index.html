@@ -1,1 +1,113 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulários HTML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!--Após pesquisa, a fonte que mais se assemelhou das imagens do exercício foi essa-->
+</head>
 
+<body style ="font-family: Merriweather, serif">
+    <h1 style="text-align: left"><strong>Cadastro de clientes</strong></h1>
+    <p style ="color:rgb(203, 51, 77); text-align: left">Todos os campos são de preenchimento obrigatório</p>
+    <form>
+     <!--Grupo 1 dados pessoais-->
+    <fieldset style="width:250px;">
+    <legend>Dados pessoais</legend>
+     
+        <label for ="txtNome">Nome:</label>
+        <br>
+        <input id ="txtNome" type="text" maxlength="20" placeholder="Nome completo" required>
+        <!--required faz o campo ser obrigatório-->
+        <br><br>
+        
+        <label for ="txtData">Data de nascimento:</label>
+        <input id ="txtData" type ="date" required> <!--coloca o calendário de datas-->
+        <br><br>
+        
+        <label for ="sexo">Sexo:</label>
+        <br>
+        <input type ="radio" id ="txtMasculino" name="sexo" value="Masculino" required> <!--name corresponde a label sexo-->
+        <label for="txtMasculino">Masculino</label> <!--Necessário uma label pra cada sexo-->
+        <input type ="radio" id ="txtFeminino" name="sexo" value="Feminino" required>
+        <label for="txtFeminino">Feminino</label>    
+    </fieldset>
+
+    <!--Grupo 2 dados pessoais-->
+    <fieldset style="width:250px;">
+    <legend>Informações de contato</legend>
+    
+        <label for ="txtEmail">Email:</label>
+        <br>
+        <input id ="txtEmail" type="email" name="email" required>
+        <br><br>
+
+        <label for ="txtTel">Telefone celular:</label>
+        <input id ="txtTel" type="tel" maxlength="9" placeholder="Apenas números (máx:9)" required>
+        <!--Aqui permiti 9 caracteres(de acordo com anunciado), não usei pattern para permitir só números-->
+        <br><br>
+
+        <label for ="txtSite">Website pessoal/profissional:</label>
+        <input id ="txtSite" type="url" name="website" required>
+    </fieldset>
+
+     <!--Grupo 3 dados pessoais-->
+     <fieldset style="width:250px;">
+     <legend>Localização</legend>
+     
+        <label for ="txtEndereco">Endereço:</label>
+        <br>
+        <input id ="txtEndereco" type="text" name="endereco" required>
+        <br><br>
+
+        <label for ="txtNum">Número:</label>
+        <br>
+        <input id ="txtNum" type="number" min="1" max="9999" placeholder="(Valor entre 1 e 9999)" required style="width: 170px">
+        <!--aumentei a caixinhan do texto pra ficar do tamanho das demais-->
+        <br><br>
+
+        <label for="txtCity">Cidade:</label>
+        <br>
+        <input id="txtCity" type="text" name="city" required>
+        <br><br>
+
+        <label for="txtEstado">Estado:</label>
+        <br>
+        <select name="txtEstado" id="estados" required>
+            <option value=""disabled selected>Selecione</option>
+            <option value="AC">Acre (AC)</option>
+            <option value="AL">Alagoas (AL)</option>
+            <option value="AP">Amapá (AP)</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MT">Mato Grosso (MT)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="RO">Rondônia (RO)</option>
+            <option value="RR">Roraima (RR)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+            <option value="SE">Sergipe (SE)</option>
+            <option value="TO">Tocantins (TO)</option>
+        </select>
+    </fieldset>
+
+    <button type="submit">Cadastrar</button>
+    <input type="reset" value="Limpar">
+    </form>
+     
+
+</body>
+</html>
