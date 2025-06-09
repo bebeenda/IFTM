@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container > div{
+    width: 240px;
+    padding: 30px;
+    text-align: center;
+}
+img {
+    /* para a imagem ficar centralizada */
+    display: block;
+     max-width: 100%;
+
+  }
+.container > div > h3{
+    /* para centralizar o h3 */
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.container div > p, details{
+    /* para o paragrafo e o details dentro da div ficar como texto justificado */
+    text-align: justify;
+}
+.leiaMais{
+    /* criei uma classe em summary leia mais para persolaiza-la diretamente */
+    color: blue;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+body{
+    background-color: black;
+}
+
+section{
+    width: 1000px;
+    margin: auto;
+    background-color: white;
+}
+.portifolioCelulares h2, .portifolioCelulares > p {
+    /* usei para o H2 e o p após h2 serem centralizados */
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+.portifolioCelulares h2{
+    padding-top: 15px;
+    color: red;
+    line-height: 100%;
+
+}
