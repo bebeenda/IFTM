@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+/* Primeira sessão */
+.future{
+    width: 1200px;
+    margin:auto;
+    background-color: white;
+    font-family: Arial;
+}
+
+h2{
+    color: darkred;
+    text-align: center;
+    padding-bottom:20px;
+}
+
+.future > .apresentacao {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 25px;
+}
+.future > .badge > div{
+    padding: 0px 25px;
+}
+
+.future > div > div > h1{
+    font-weight: bolder;
+    padding-bottom:40px;
+}
+.future > div> p{
+    text-align: center;
+    justify-content: center;
+    width: 800px;
+    
+}
+
+  /* img, div{
+    border: 1px solid red;
+ }   */
+
+ .botao{
+    background-color: rgb(180, 49, 2);
+    padding: 8px 15px;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+ }
+
+ .botao:hover{
+    cursor: pointer;
+    background-color: orangered;
+ }
+
+ /* Segunda sessão */
+
+ .fundogray{
+    background-color:rgb(204, 204, 204);
+    /* alternativa que encontrei para deixar todo o fundo cinza tendo em vista que a largura das sessões deveria ser 1200px */
+ }
+ .tecnologias{
+    width: 1200px; 
+    font-family: Arial;
+    padding-top: 40px;
+    padding-bottom:20px;
+    margin:auto;
+
+}
+.tecnologias > h2{
+    padding: 15px 25px;
+   
+}
+
+.teccontainer{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+   
+}
+
+.teccontainer h4{
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.teccontainer div{
+    padding: 25px;
+}
+
+.teccontainer > div > p{
+    text-align: justify;
+
+}
+
+.borda{
+    width: 200px;
+    border-bottom: 2px solid darkred;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 0px;
+}
+ 
+/* terceira sessão */
+
+.portifolio{
+    width: 1200px;
+    background-color: white;
+    font-family: Arial;
+    padding-top: 40px;
+    padding-bottom:20px;
+    margin:auto;
+}
+.portcontainer{
+    margin-top: 25px;
+}
+.portcontainer > div{
+    display: flex;
+    flex-direction:row;
+    text-align: center;
+}
+
+.portcontainer> div > div> p{
+    text-align: justify;
+}
+
+footer{
+    /* width: 1200px;
+    margin: auto; */
+    font-family: Arial;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
