@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: arial;
+}
+
+/*Versão: Mobile*/
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+header nav a:link, header nav a:visited {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: black;
+    padding: 10px;
+}
+header nav a:hover {
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+.section_apresentacao {
+    text-align: center;
+    color: rgb(239, 239, 239);
+}
+
+section:nth-of-type(odd){
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    color: rgb(239, 239, 239);
+}
+
+.section_aplicativos p{
+    text-align: justify;
+}
+
+section {
+    padding: 30px;
+}
+section img {
+    /* toda imagem nao pode passar da largura da tela */
+    max-width: 100%;
+    height: auto;
+}
+section p{
+    padding: 30px 0px;
+    line-height: 150%;
+}
+
+input[type="button"] {
+    background-color: blue;
+    border:none;
+    color: white;
+    padding: 15px;
+    font-size:16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background-color: rgb(0, 0, 151);
+}
+
+
+.section_planos > div > div {
+    text-align: center;
+    padding: 30px 0px;
+}
+
+.section_planos > div > div > p {
+    text-align: justify;
+}
+
+.section_planos > div > div  h2{
+    color: red;
+    font-size: 20px;
+    margin: 5px 0px 20px 0px;
+}
+
+.section_planos > div, .section_produtos > div{
+    display: flex;
+    flex-direction: column;
+}
+
+.section_produtos > div > div{
+    text-align: center;
+}
+
+.section_produtos > div > div  p{
+    text-align: justify;
+}
+
+.section_produtos input[type="button"]{
+    margin: 0px;
+}
+
+.section_produtos > div > div{
+    padding: 20px 0px;
+}
+.section_cliente > div > div {
+   padding: 15px;
+  
+}
+.section_cliente > div > div p{
+    padding: top;
+    text-align: justify;
+    font-style: italic;
+}
+.section_cliente h2{
+    padding-bottom: 30px;
+}
+.section_cliente > form > input[type="button"]
+{
+    background-color: orange;
+    font-weight: bold;
+}
+.section_cliente > form > input[type="button"]:hover {
+    background-color: rgb(0, 0, 151);
+}
+.section_cliente > div > div  figcaption{
+    padding-bottom: 15px;
+}
+
+
+figcaption{
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+footer{
+    background-color: black;
+    padding: 50px;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+}
+
+
+/*Versão: Tablet e Desktop*/
+@media screen and (min-width:768px) {
+    header nav ul {
+        flex-direction: row;
+        justify-content: right;
+    }
+    header nav a:link, header nav a:visited {
+        padding: 15px 25px;
+    }
+    .section_apresentacao > div {
+        width: 1200px;
+        margin:auto;
+    }
+
+    .section_planos > div, .section_produtos > div{
+        flex-direction: row;
+        
+    }
+    section > div{
+        /* toda div container, no desktop vao ter 1200px e margin auto */
+        width: 1200px;
+        margin:auto;
+    }
+
+    .section_planos > div > div, .section_produtos > div > div {
+        text-align: center;
+        padding: 0px 30px;
+    }
+
+    section{
+        padding: 50px;
+    }
+    figcaption{
+        font-size: 24px;
+    }
+    .section_cliente > div {
+        display: flex;
+        flex-direction: row;
+    }
+}
