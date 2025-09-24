@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 07</title>
+        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+
+<div>
+
+<form id="campos">
+
+    <h1>Acesso ao Sistema</h1>
+        <table>
+            <tr> 
+                <!-- tr é a linha td a coluna -->
+                <td class="campos_preenchidos">
+                    <label>Login</label>
+                </td>
+                <td>
+                    <input type="text" id="txtLogin" class="caixa"> 
+                   
+                </td>
+            </tr>
+
+          <tr>
+            <td class="campos_preenchidos">
+                <label>Senha</label>
+            </td>
+            <td>
+                <input type="password" id="txtSenha" maxlength="8">
+                <span>(max. 8 caracteres)</span>
+            </td>
+          </tr>  
+
+          <tr>
+              <td class="campos_preenchidos">
+                <label>Confirmar Senha</label>
+            </td>
+            <td>
+                <input type="password" id="txtConfirma" maxlength="8">
+                 <span>(max. 8 caracteres)</span>
+            </td>
+          </tr>
+        
+        <tr>
+            <td colspan="2" class="botao">
+                <input type="button" value="Entrar" id="btnEntrar">
+                <input type="button" value="Limpar" id="btnLimpar">
+            </td>
+       
+        </table>
+    </form>
+
+</div>
+
+
+
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

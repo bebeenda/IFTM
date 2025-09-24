@@ -1,0 +1,32 @@
+div {
+  width: 450px;       /* largura fixa */
+  margin: 0 auto;     /* centraliza horizontalmente */
+  border: 1px solid black; /* só pra visualizar */
+  padding: 10px;
+}
+
+h1{
+    font-size: 24px;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+span{
+    font-size: 10px;
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.campos_preenchidos{
+    text-align: right;
+}
+
+.caixa{
+    width: 100%;
+}
+
+.botao{
+    text-align: center;
+    padding: 15px;
+}
