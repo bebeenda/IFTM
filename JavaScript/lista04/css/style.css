@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+h1{
+    margin-top: 10px;
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+.botao{
+    justify-content: center;
+    margin-top: 10px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px;
+    gap: 40px;
+    
+
+}
+
+.container > div{
+     border: 3px solid black;
+     padding: 30px;
+     border-radius: 100px;
+}
+p{
+    text-align: center;
+    padding: 10px;
+}
+
+.nome {
+  text-transform: uppercase;
+  font-weight: bolder;
+  white-space: normal;        /* permite quebra de linha */
+  overflow-wrap: break-word;  /* quebra se for muito longo */
+  text-align: center;         /* centraliza (se quiser igual na imagem) */
+  width: 230px;               /* limite de largura p/ forçar quebra */
+}
+
+.vencedor{
+    color: red;
+    font-size: 21px;
+    font-weight: bold;
+   
+}
