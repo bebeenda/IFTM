@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jMaskWiFi.js"></script>
+</head>
+<body>
+
+    <h1 style="color: rgb(248, 99, 213);">Formulário Expressão Regulares</h1>
+    
+<!-- Questão a -->
+<form action="">
+    <label for="">Data de nascimento:</label>
+    <input type="text" id="cxNascimento" placeholder="dd/mm/aaaa ou dd/mm/aa">
+    <input type="button" value="Validar" id="btnDataNascimento">
+</form>
+<br>
+<!-- Questão b -->
+<form action="">
+    <label for="">CPF:</label>
+    <input type="text" id="txtCPF" value="" onkeypress="inserirMascara('txtCPF', 'xxx.xxx.xxx-xx')" placeholder="xxx.xxx.xxx-xx">
+    <input type="button" value="Validar" id="btnCPF">
+</form>
+<br>
+<!-- Questão c -->
+<form action="">
+    <label for="">Número de Matrícula:</label>
+    <input type="text" id="txtMatricula" value="" placeholder= "IFTM-xxx/xxx-yy ou iftm-xxx/xxx-yy">
+    <input type="button" value="Validar" id="btnMatricula">
+</form>
+<br>
+
+<!-- Questão d -->
+<form action="">
+    <label for="">Código disciplina IFTM</label>
+    <input type="text" id="txtCodigo" value="" onkeypress="inserirMascara('txtCodigo', 'XX-xx.xxx-XXXX')" placeholder="XX-xx.xxx-XXXX">
+    <input type="button" value="Validar" id="btnCodigo">
+</form>
+<br>
+
+<!-- Questão e -->
+<form action="">
+    <label for="">Código disciplina IFTM 2</label>
+    <input type="text" id="txtCodigo2" value="" onkeypress="inserirMascara('txtCodigo2', 'XX-xx.xxx-XXXX')" placeholder="XX-xx.xxx-XXXX">
+    <input type="button" value="Validar" id="btnCodigo2">
+</form>
+<br>
+
+<!-- Questão f -->
+<form action="">
+    <label for="">Código disciplina IFTM 3</label>
+    <input type="text" id="txtCodigo3" value="" placeholder="XX-xx.xxx-XXXX">
+    <input type="button" value="Validar" id="btnCodigo3">
+</form>
+<br>
+
+<!-- Questão g-->
+<form action="">
+    <label for="">Código disciplina IFTM 4</label>
+    <input type="text" id="txtCodigo4" value="" placeholder="XX-xx.xxx-XXXX X">
+    <input type="button" value="Validar" id="btnCodigo4">
+</form>
+<br>
+
+<!-- Questão h-->
+<form action="">
+    <label for="">Nome do Campus</label>
+    <input type="text" id="txtCampus" value="" >
+    <input type="button" value="Validar" id="btnCampus">
+</form>
+<br>
+
+<!-- Questão i-->
+<form action="">
+    <label for="">Telefone</label>
+    <input type="text" id="txtTelefone" value=""onkeypress="inserirMascara('txtTelefone', '+yy(xx)xxxxx-xxxx')" placeholder="+yy(xx)xxxxx-xxxx">
+    <input type="button" value="Validar" id="btnTelefone">
+</form>
+<br>
+
+<!-- Questão j-->
+<form action="">
+    <label for="">Telefone 2</label>
+    <input type="text" id="txtTelefone2" value=""onkeypress="inserirMascara('txtTelefone2', '(xxx)xxxxx-xxxx')" placeholder="(xx)xxxxx-xxxx ou (xxx)xxxxx-xxxx ">
+    <input type="button" value="Validar" id="btnTelefone2">
+</form>
+<br>
+
+<!-- Questão k-->
+<form action="">
+    <label for="">Altura de uma pessoa</label>
+    <input type="text" id="txtAltura" value="" placeholder="0,0 ">
+    <input type="button" value="Validar" id="btnAltura">
+</form>
+<br>
+
+<!-- Questão l-->
+<form action="">
+    <label for="">Faturamento anul de uma empresa</label>
+    <input type="text" id="txtFaturamento" value="" placeholder="R$">
+    <input type="button" value="Validar" id="btnFaturamento">
+</form>
+<br>
+
+<!-- Questão m-->
+<form action="">
+    <label for="">Cronômetro</label>
+    <input type="text" id="txtHoras" value="" onkeypress="inserirMascara('txtHoras', 'HH:MM:SS')" placeholder="HH:MM:SS">
+    <input type="button" value="Validar" id="btnHoras">
+</form>
+<br>
+
+<!-- Questão n-->
+<form action="">
+    <label for="">Senha</label>
+    <input type="text" id="txtSenha" value="" onkeypress="inserirMascara('txtHoras', 'xxxx.xxxxx.xxx.xxx-xxx+x,/x.xx')" placeholder="xxxx.xxxxx.xxx.xxx-xxx+x,/x.xx">
+    <input type="button" value="Validar" id="btnSenha">
+</form>
+<br>
+
+<script src="js.arquivo/script.js"></script>
+
+
+</body>
+</html>
