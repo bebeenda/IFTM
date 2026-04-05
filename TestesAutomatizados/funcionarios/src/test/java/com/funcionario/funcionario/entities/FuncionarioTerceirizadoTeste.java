@@ -3,7 +3,6 @@ package com.funcionario.funcionario.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.TestPropertySource;
 
 public class FuncionarioTerceirizadoTeste {
 
@@ -33,48 +32,28 @@ public class FuncionarioTerceirizadoTeste {
 
 @Test
     public void testarModificarDespesageraPagamentoAcimaDoMinimo(){
-    String nome = "Kiwi";
-    FuncionarioTerceirizado f = new FuncionarioTerceirizado(nome);
-    double valorHora = 160.0;
-    int horasTrabalhadas = 151;
-    double despesasAdicionais = 1000;
+    String nome = "Brenda";
+    int horasTrabalhadas = 20;
+    double valorHora = 120.0;
+    double despesasAdicionais = 1000.00;
     
-    f.setHorasTrabalhadas(horasTrabalhadas);
-    f.setValorHora(valorHora);
-    f.setDespesasAdicionais(despesasAdicionais);
+    FuncionarioTerceirizado ft = new FuncionarioTerceirizado(nome);
+    ft.setHorasTrabalhadas(horasTrabalhadas);
+    ft.setValorHora(valorHora);
+    ft.setDespesasAdicionais(despesasAdicionais);
 
     String mensagemEsperada = "O salário não pode ser maior que R$ 10.000.00";
 
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        () -> f.calcularSalario()
+        () -> ft.calcularSalario()
     );
 
-    assertEquals(mensagemEsperada, erro.getMessage());
+     String mensagemRecebida = erro.getMessage();
+
+    assertEquals(mensagemEsperada, mensagemRecebida);
 }
 
-//------ Salário CORRETO
 
-@Test
-    public void testarModificarDespesageraPagamentoAcimaDoMinimo(){
-    String nome = "Kiwi";
-    FuncionarioTerceirizado f = new FuncionarioTerceirizado(nome);
-    double valorHora = 20;
-    int horasTrabalhadas = 110;
-    double despesasAdicionais = 500;
-    
-    f.setHorasTrabalhadas(horasTrabalhadas);
-    f.setValorHora(valorHora);
-    f.setDespesasAdicionais(despesasAdicionais);
-
-    String mensagemEsperada = "O salário não pode ser maior que R$ 10.000.00";
-
-    IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        () -> f.calcularSalario()
-    );
-
-    assertEquals(mensagemEsperada, erro.getMessage());
-}
-   
 //-------------------------------------------------------------------------------------------------------------
 
 //---------- testar DESPESA ACIMA
@@ -82,16 +61,22 @@ public class FuncionarioTerceirizadoTeste {
     public void testarModificarDespesaAcimadoLimite(){
     // arrange
     String nome = "Brenda";
-    FuncionarioTerceirizado f = new FuncionarioTerceirizado(nome);
-
+    int horasTrabalhadas = 6;
+    double valorHora = 15.28;
     double despesasAdicionais = 1200;
-    String mensagemEsperada = "As despesas adicionais não podem ser acima de R$ 1000,00";
-
+   
     // act + assert
+    FuncionarioTerceirizado ft = new FuncionarioTerceirizado(nome);
+        ft.setHorasTrabalhadas(horasTrabalhadas);
+        ft.setValorHora(valorHora);
+
+     String mensagemEsperada = "As despesas adicionais não podem ser acima de R$ 1.000,00";
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        () -> f.setDespesasAdicionais(despesasAdicionais)
+        () -> ft.setDespesasAdicionais(despesasAdicionais)
     );
-    assertEquals(mensagemEsperada, erro.getMessage());
+
+    String mensagemRecebida = erro.getMessage();
+    assertEquals(mensagemEsperada, mensagemRecebida);
 
    }
     
@@ -101,14 +86,14 @@ public class FuncionarioTerceirizadoTeste {
     public void testarModificarDespesaNegativa(){
     // arrange
     String nome = "Brenda";
-    FuncionarioTerceirizado f = new FuncionarioTerceirizado(nome);
+    FuncionarioTerceirizado ft = new FuncionarioTerceirizado(nome);
 
     double despesasAdicionais = -1;
     String mensagemEsperada = "As despesas adicionais não podem ser acima de R$ 1000,00";
 
     // act + assert
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        () -> f.setDespesasAdicionais(despesasAdicionais)
+        () -> ft.setDespesasAdicionais(despesasAdicionais)
     );
     assertEquals(mensagemEsperada, erro.getMessage());
 
@@ -117,6 +102,19 @@ public class FuncionarioTerceirizadoTeste {
 
     @Test
     public void testarModificarDespesaGeraPagementoValido(){
+        String nome = "Brenda";
+        int horasTrabalhadas = 20;
+        double valorHora = 110;
+        double despesasAdicionais = 1000.00;
+
+        FuncionarioTerceirizado ft = new FuncionarioTerceirizado(nome);
+        ft.setHorasTrabalhadas(horasTrabalhadas);
+        ft.setValorHora(valorHora);
+        ft.setDespesasAdicionais(despesasAdicionais);
+        double resultadoEsperado = 9800.00;
+
+        assertEquals(resultadoEsperado, ft.calcularSalario());
 
     }
+    
 }

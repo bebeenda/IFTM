@@ -3,7 +3,6 @@ package com.funcionario.funcionario.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.TestPropertySource;
 
 public class FuncionarioTeste {
     
@@ -11,17 +10,19 @@ public class FuncionarioTeste {
 public void testarConstrutorComHorasTrabalhadasAbaixoHoras(){
     //arrange
     String nome = "Brenda";
-    Funcionario f = new Funcionario(nome);
-    double valorHora = 50.00;
     int horasTrabalhadas = 3;
+    double valorHora = 100.00;
+    
+    Funcionario f = new Funcionario(nome);
     f.setValorHora(valorHora);
+
     String mensagemEsperada = "O número de horas trabalhadas por funcionários próprios deve ser um valor entre 5 e 40";
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
         ()-> {f.setHorasTrabalhadas(horasTrabalhadas);}
     );
     
     String mensagemObtida = erro.getMessage();
-    assertEquals(mensagemEsperada, mensagemObtida);
+    assertEquals(mensagemObtida, mensagemEsperada);
 
 }
 
@@ -29,32 +30,34 @@ public void testarConstrutorComHorasTrabalhadasAbaixoHoras(){
 public void testarConstrutorComHorasTrabalhadasAcimaHoras(){
     //arrange
     String nome = "Brenda";
-    Funcionario f = new Funcionario(nome);
-    double valorHora = 50.0;
     int horasTrabalhadas = 42;
+    double valorHora = 100.0;
+
+    Funcionario f = new Funcionario(nome);
     f.setValorHora(valorHora);
+
     String mensagemEsperada = "O número de horas trabalhadas por funcionários próprios deve ser um valor entre 5 e 40";
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
         ()-> {f.setHorasTrabalhadas(horasTrabalhadas);}
     );
     
     String mensagemObtida = erro.getMessage();
-    assertEquals(mensagemEsperada, mensagemObtida);
+    assertEquals(mensagemObtida, mensagemEsperada);
 }
 
 @Test //verificação das horas CORRETO
 public void testarConstrutorComHorasCorretas(){
      //arrange
        String nome = "Brenda";
-        Funcionario f = new Funcionario(nome);
-        double valorHora = 250.0;
-        int horasTrabalhadas = 30;
+       int horasTrabalhadas = 20;
+       double valorHora = 100.0;
 
+        Funcionario f = new Funcionario(nome);
         f.setValorHora(valorHora);
         f.setHorasTrabalhadas(horasTrabalhadas);
-
+        double valorEsperadoResultado = 8000.00 ;
         // valida se setou corretamente
-        assertEquals(30, f.getHorasTrabalhadas());
+        assertEquals(valorEsperadoResultado, f.calcularSalario());
 }
 //-------------------------------------------------------------------------------------------------------------
 //-- teste VALOR da horas acima
@@ -62,17 +65,21 @@ public void testarConstrutorComHorasCorretas(){
 public void testarConstrutorValorAcimaLimite(){
      //arrange
     String nome = "Brenda";
-    Funcionario f = new Funcionario(nome);
+    int horasTrabalhadas = 5;
     double valorHora = 1500.00;
-    int horasTrabalhadas = 40;
-    f.setValorHora(valorHora);
+  
+
+    Funcionario f = new Funcionario(nome);
+    
+
     String mensagemEsperada = "O valor de horas trabalhadas por funcionários próprios deve ser um valor entre";
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        ()-> {f.setHorasTrabalhadas(horasTrabalhadas);}
-    );
+        ()-> {f.setValorHora(valorHora);
+            
+        });
     
     String mensagemObtida = erro.getMessage();
-    assertEquals(mensagemEsperada, mensagemObtida);
+    assertEquals(mensagemObtida, mensagemEsperada);
 }
 
 //teste VALOR da horas abaixo
@@ -81,17 +88,20 @@ public void testarConstrutorValorAcimaLimite(){
 public void testarConstrutorValorAbaixoLimite(){
        //arrange
     String nome = "Brenda";
-    Funcionario f = new Funcionario(nome);
+    int horasTrabalhadas = 5;
     double valorHora = 14.00;
-    int horasTrabalhadas = 40;
-    f.setValorHora(valorHora);
+   
+
+    Funcionario f = new Funcionario(nome);
+    
     String mensagemEsperada = "O valor de horas trabalhadas por funcionários próprios deve ser um valor entre";
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
-        ()-> {f.setHorasTrabalhadas(horasTrabalhadas);}
-    );
+        ()-> {f.setValorHora(valorHora);
+
+        });
     
     String mensagemObtida = erro.getMessage();
-    assertEquals(mensagemEsperada, mensagemObtida);
+    assertEquals(mensagemObtida, mensagemEsperada);
 }
 
 // ----- Teste correto DE VALOR E HORAS TRABALHADOS
@@ -99,15 +109,16 @@ public void testarConstrutorValorAbaixoLimite(){
 public void testarConstrutorValorEHorasCorreto(){
        //arrange
         String nome = "Brenda";
+        int horasTrabalhadas = 10;
+        double valorHora = 100.00;
+       
         Funcionario f = new Funcionario(nome);
-        double valorHora = 250.00;
-        int horasTrabalhadas = 30;
-
         f.setValorHora(valorHora);
         f.setHorasTrabalhadas(horasTrabalhadas);
+        double valorEsperadoResultado = 4000.00;
 
-        assertEquals(250, f.getValorHora());
-        assertEquals(30, f.getHorasTrabalhadas());
+        assertEquals(valorEsperadoResultado, f.calcularSalario(), 0.01);
+        
 }
 
 //----------------------------------------------------------------------------------------------------------------
@@ -118,16 +129,21 @@ public void testarConstrutorValorEHorasCorreto(){
 @Test
 public void validarSalarioFuncionarioAcima(){
     String nome = "Brenda";
+    int horasTrabalhadas = 39;
+    double valorHora = 1000.00;
+    
     Funcionario f = new Funcionario(nome);
-    double valorHora = 100.00;
-    int horasTrabalhadas = 160;
-    String mensagemEsperada = "O salário não pode ultrapassar R$ 10000.00";
+    f.setHorasTrabalhadas(horasTrabalhadas);
+    f.setValorHora(valorHora);
+    String mensagemEsperada = "O salário não pode ultrapassar R$ 10.000.00";
 
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
         () -> f.calcularSalario()
     );
 
-    assertEquals(mensagemEsperada, erro.getMessage());
+    String mensagemRecebida = erro.getMessage();
+
+    assertEquals(mensagemEsperada, mensagemRecebida);
 
 }
 
@@ -135,16 +151,22 @@ public void validarSalarioFuncionarioAcima(){
 @Test
 public void validarSalarioFuncionarioAbaixo(){
     String nome = "Brenda";
+    int horasTrabalhadas = 6;
+    double valorHora = 15.28;
+   
+
     Funcionario f = new Funcionario(nome);
-    double valorHora = 20.00;
-    int horasTrabalhadas = 20;
+    f.setHorasTrabalhadas(horasTrabalhadas);
+    f.setValorHora(valorHora);
     String mensagemEsperada = "O salário não pode ser menor que R$ 1518.00";
 
     IllegalArgumentException erro = assertThrows(IllegalArgumentException.class,
         () -> f.calcularSalario()
     );
 
-    assertEquals(mensagemEsperada, erro.getMessage());
+    String mensagemRecebida = erro.getMessage();
+
+    assertEquals(mensagemEsperada, mensagemRecebida);
 
 }
 
@@ -152,15 +174,18 @@ public void validarSalarioFuncionarioAbaixo(){
 @Test
 public void validarSalarioFuncionarioCorreto(){
     String nome = "Brenda";
+    int horasTrabalhadas = 10;
+    double valorHora = 100.00;
+  
+
     Funcionario f = new Funcionario(nome);
-    double valorHora = 50.00;
-    int horasTrabalhadas = 20;
-    
     f.setHorasTrabalhadas(horasTrabalhadas);
     f.setValorHora(valorHora);
+    double valorEsperadoParaOResultado = 4000;
+
     double salario = f.calcularSalario();
 
-    assertEquals(2000, salario);
+    assertEquals(valorEsperadoParaOResultado, f.calcularSalario());
 }
 
 }
