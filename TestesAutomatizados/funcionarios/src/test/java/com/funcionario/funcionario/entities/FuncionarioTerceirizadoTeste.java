@@ -8,7 +8,7 @@ public class FuncionarioTerceirizadoTeste {
 
     @Test
     public void testarModificarDespesageraPagamentoAbaixoDoMinimo(){
-    String nome = "Kiwi";
+    String nome = "Brenda";
     FuncionarioTerceirizado f = new FuncionarioTerceirizado(nome);
     double valorHora = 20.0;
     int horasTrabalhadas = 20;
