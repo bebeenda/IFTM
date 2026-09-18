@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap');
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--color-text);
+}
+
+:root {
+    /* Espaçamentos */
+    --internal-space: 10px;
+
+    /* Espaçamentos */
+    --space-0: 0px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 80px;
+    --space-10: 96px;
+
+    /* Layout */
+    --max-width-container: 1250px;
+    --border-main-title: 25px;
+    --border-box: 10px;
+
+    /* Cores */
+    --bg-card: rgb(248, 229, 255);
+    --color-text1: white;
+    --color-card: blue;
+    --color-bg: rgb(166, 91, 168);
+
+    /* --color-text: blue; */
+    --color-buttons: #AF872D;
+
+    /* Tamanho das fontes*/
+    --font-subtitle2: 28px;
+    --font-paragraph: 16px;
+}
+
+body p {
+    font-size:var(--font-paragraph);
+}
+
+.section1{
+    margin: auto;
+    text-align: center;
+    background-color: var(--color-bg);
+    padding-bottom: 32px;
+    
+   
+}
+
+h1 {
+    padding-top: 35px;
+    margin-bottom: 12px;
+    color: var(--color-text1);
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--color-text1);
+    padding-bottom: 64px;
+}
+
+
+.cursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.HTML,
+.CSS,
+.JS {
+    padding: 25px;
+    border: 1px solid rgb(181, 53, 255);
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--bg-card);
+    
+}
+
+p {
+    line-height: 2.0;
+}
+.cursos img {
+    width: 100px;
+    height: auto;
+    align-items: center;
+}
+
+.cursos h3{
+    margin-bottom: 12px;
+}
+
+.cursos p{
+    margin-bottom: 20px;
+}
+
+.HTML summary,
+.CSS summary,
+.JS summary {
+    cursor: pointer;
+    font-weight: bold;
+}
