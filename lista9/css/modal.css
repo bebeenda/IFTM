@@ -1,0 +1,141 @@
+/* Modal de resultados: carregue este arquivo depois do style.css */
+
+/* Garante que "hidden" esconda também os botões */
+[hidden] { display: none !important; }
+
+.modal-titulos { flex: 1 1 16rem; min-width: 0; }
+
+.termos-busca {
+  margin: .2rem 0 0;
+  font-size: .94rem;
+  overflow-wrap: anywhere;
+}
+
+.termos-busca:empty { display: none; }
+
+.fichas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ficha {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--pessego);
+  border: 1px solid var(--azul-medio);
+  border-radius: 10px;
+}
+
+.ficha-capa,
+.capa-vazia {
+  flex: none;
+  width: 5rem;
+  height: 7.5rem;
+  border-radius: 4px;
+}
+
+.ficha-capa {
+  object-fit: cover;
+  background: var(--azul-ceu);
+}
+
+/* Marcador para obras sem capa */
+.capa-vazia {
+  background: var(--azul-ceu) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326445c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2Z'/%3E%3Cpath d='M12 6v14'/%3E%3C/svg%3E") center / 2.25rem no-repeat;
+}
+
+.ficha-info { min-width: 0; }
+
+.ficha h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 0;
+  overflow-wrap: anywhere;
+}
+
+.ficha-autor { margin: .25rem 0 0; }
+
+.ficha-detalhes {
+  margin: .25rem 0 0;
+  font-size: .94rem;
+  overflow-wrap: anywhere;
+}
+
+.ficha-link {
+  display: inline-block;
+  margin-top: .4rem;
+  padding: .2rem 0;
+  color: inherit;
+  font-size: .94rem;
+  font-weight: 700;
+}
+
+/* Fichas de espera */
+.ficha-esqueleto {
+  height: 9.6rem;
+  background: var(--pessego);
+  border-radius: 10px;
+  opacity: .75;
+  animation: pulsar 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes pulsar {
+  to { opacity: .4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ficha-esqueleto { animation: none; }
+}
+
+.carregar-mais {
+  display: flex;
+  justify-content: center;
+}
+
+.carregar-mais .botao { margin-top: 1.25rem; }
+
+.erro-carregar {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dica { margin: 0; }
+
+.aviso-reserva {
+  margin: 0 0 1rem;
+  padding: .6rem .8rem;
+  font-size: .94rem;
+  background: var(--pessego);
+  border-left: 5px solid var(--coral);
+}
+
+
+.modal-confirmar {
+  width: min(30rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+}
+
+.modal-confirmar p { margin: .5rem 0 0; }
+
+.confirmar-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+.confirmar-acoes .botao-principal { flex: none; }
+
+
+.painel.tentou-buscar .situacao-vazio {
+  color: #b00020;
+}

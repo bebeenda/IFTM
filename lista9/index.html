@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulta de obras | Librix</title>
+    <meta name="description" content="Encontre uma obra por autor, título ou ISBN.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <a class="pular" href="#autor">Ir para o formulário</a>
+
+    <main id="busca">
+        <div class="destaque">
+            <div class="painel">
+                <div class="logo">
+                    <img src="images/logo (2).png" alt="Librix">
+                </div>
+
+                <h1>Consulta de obras literárias</h1>
+                <p class="intro">Preencha um ou mais campos para encontrar a obra.</p>
+
+                <form class="formulario" aria-label="Buscar obra">
+                    <div class="campo">
+                        <label for="autor">Autor</label>
+                        <input id="autor" name="autor" type="text" placeholder=" " autocomplete="off"
+                            aria-describedby="ajuda-autor">
+                        <p class="ajuda" id="ajuda-autor">Nome ou sobrenome. Ex.: Machado de Assis</p>
+                    </div>
+
+                    <div class="campo autor-extra" id="campo-autor2">
+                        <label for="autor2">Segundo autor (opcional)</label>
+                        <input id="autor2" name="autor2" type="text" placeholder=" " autocomplete="off">
+                    </div>
+
+                    <div class="campo autor-extra" id="campo-autor3">
+                        <label for="autor3">Terceiro autor (opcional)</label>
+                        <input id="autor3" name="autor3" type="text" placeholder=" " autocomplete="off">
+                    </div>
+
+                    <div class="campo">
+                        <label for="titulo">Título</label>
+                        <input id="titulo" name="titulo" type="text" placeholder=" " autocomplete="off"
+                            aria-describedby="ajuda-titulo">
+                        <p class="ajuda" id="ajuda-titulo">Título completo ou parte dele. Ex.: Dom Casmurro</p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="isbn">ISBN</label>
+                        <input id="isbn" name="isbn" type="text" placeholder=" " autocomplete="off" maxlength="17"
+                            pattern="(?:[\- ]*\d){9}[\- ]*[\dXx][\- ]*|(?:[\- ]*\d){13}[\- ]*"
+                            title="10 ou 13 dígitos, com ou sem hífens" aria-describedby="ajuda-isbn erro-isbn">
+                        <p class="ajuda" id="ajuda-isbn">Código do livro, na contracapa. 10 ou 13 dígitos, com ou sem
+                            hífens.</p>
+                        <p class="erro" id="erro-isbn"><span class="icone-erro" aria-hidden="true">!</span> O ISBN deve
+                            ter 10 ou 13 dígitos. Confira o número digitado.</p>
+                    </div>
+
+                    <div class="acoes">
+                        <button class="botao botao-principal buscar-ativo" type="submit">Buscar obras</button>
+                       <button class="botao botao-principal buscar-inativo" type="button" aria-disabled="true">Buscar obras</button>
+                        <button class="botao botao-secundario limpar" type="button">Limpar campos</button>
+                    </div>
+
+                    <p class="situacao" role="status">
+                        <span class="situacao-vazio">Preencha ao menos um campo para buscar.</span>
+                        <span class="situacao-invalido">Corrija o ISBN para buscar.</span>
+                        <span class="situacao-pronto">Tudo certo. Você já pode buscar.</span>
+                    </p>
+                </form>
+
+                <details class="ajuda-geral">
+                    <summary>Como funciona a busca?</summary>
+                    <ul>
+                        <li>Preencha <strong>pelo menos um campo</strong> para fazer a busca.</li>
+                        <li>Ao informar mais de um autor, serão exibidas as <strong> obras que atendem a todos </strong>
+                            eles.</li>
+                        <li>Letras maiúsculas e acentos <strong>não fazem diferença.</strong></li>
+                        <li>O <strong>ISBN</strong> é um código que identifica cada edição de um livro. <strong>Costuma
+                                ficar na contracapa</strong>, perto do código de barras, ou nas primeiras páginas.
+                            <strong>Pode ser digitado com ou sem hífens.</strong></li>
+                        <li><strong>Dica:</strong> se souber o ISBN, use somente ele. É o caminho mais direto até a
+                            edição certa.</li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+
+        <dialog id="modal-resultados" class="modal" aria-labelledby="titulo-resultados">
+            <header class="modal-topo">
+                <div class="modal-titulos">
+                    <h2 id="titulo-resultados" aria-live="polite"></h2>
+                    <p class="termos-busca" id="termos-busca"></p>
+                </div>
+                <form method="dialog">
+                    <button class="botao botao-secundario" type="submit">Fechar</button>
+                </form>
+            </header>
+
+            <div class="modal-corpo">
+                <p class="aviso-reserva" id="aviso-reserva" hidden>O catálogo online não respondeu. Estes resultados vêm
+                    de uma lista reduzida de demonstração, com editoras e ISBNs fictícios.</p>
+                <ol class="fichas" id="lista-fichas"></ol>
+                <p class="dica" id="dica" hidden>Não encontrou a obra? Confira a grafia ou preencha menos campos.</p>
+                <p class="erro-carregar" id="erro-carregar" role="status" hidden>Não foi possível carregar mais obras.
+                    Tente de novo.</p>
+                <div class="carregar-mais">
+                    <button class="botao botao-secundario" id="carregar-mais" type="button" hidden>Carregar
+                        mais</button>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="modal-limpar" class="modal modal-confirmar" aria-labelledby="titulo-limpar"
+            aria-describedby="texto-limpar">
+            <h3 id="titulo-limpar">Tem certeza que deseja limpar todos os campos?</h3>
+            <p id="texto-limpar">O que você digitou será apagado.</p>
+            <form method="dialog" class="confirmar-acoes">
+                <button class="botao botao-secundario" type="submit" value="cancelar" autofocus>Continuar
+                    editando</button>
+                <button class="botao botao-principal" type="submit" value="limpar">Limpar campos</button>
+            </form>
+        </dialog>
+    </main>
+
+    <script src="js/dados-reserva.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
