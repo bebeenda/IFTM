@@ -187,7 +187,7 @@ function mostrarPagina(busca, obras, total) {
 }
 
 async function buscarObras() {
-  const autores = [lerCampo('#autor'), lerCampo('#autor2'), lerCampo('#autor3')].filter(Boolean);
+  const autores = [lerCampo('#autor')].filter(Boolean);
   const titulo = lerCampo('#titulo');
   const isbn = lerCampo('#isbn').replace(/[\s-]/g, '');
 
