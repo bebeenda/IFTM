@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Consulta de obras | Librix</title>
+    <title>Consulta de obras literárias| Librix</title>
     <meta name="description" content="Encontre uma obra por autor, título ou ISBN.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/compacto.css">
 </head>
 
 <body>
@@ -21,20 +22,20 @@
         <div class="destaque">
             <div class="painel">
                 <div class="logo">
-                    <img src="images/logo (2).png" alt="Librix">
+                    <img src="images/logo.png" alt="Librix">
                 </div>
 
                 <h1>Consulta de obras literárias</h1>
-                <p class="intro">Preencha um ou mais campos para encontrar a obra.</p>
+                <p class="intro">Preencha pelo menos um campo para encontrar a obra.</p>
 
                 <form class="formulario" aria-label="Buscar obra">
                     <div class="campo">
-                        <label for="autor">Autor</label>
+                        <label for="autor">Autor(es)</label>
                         <input id="autor" name="autor" type="text" placeholder=" " autocomplete="off"
                             aria-describedby="ajuda-autor">
                         <p class="ajuda" id="ajuda-autor">Nome ou sobrenome. Ex.: Machado de Assis</p>
                     </div>
-
+                    <!-- 
                     <div class="campo autor-extra" id="campo-autor2">
                         <label for="autor2">Segundo autor (opcional)</label>
                         <input id="autor2" name="autor2" type="text" placeholder=" " autocomplete="off">
@@ -43,36 +44,48 @@
                     <div class="campo autor-extra" id="campo-autor3">
                         <label for="autor3">Terceiro autor (opcional)</label>
                         <input id="autor3" name="autor3" type="text" placeholder=" " autocomplete="off">
-                    </div>
+                    </div> -->
 
                     <div class="campo">
-                        <label for="titulo">Título</label>
+                        <label for="titulo">Título da obra literária</label>
                         <input id="titulo" name="titulo" type="text" placeholder=" " autocomplete="off"
                             aria-describedby="ajuda-titulo">
                         <p class="ajuda" id="ajuda-titulo">Título completo ou parte dele. Ex.: Dom Casmurro</p>
                     </div>
+                    <details class="campo-isbn" id="detalhes-isbn">
+                        <summary>Mais opções de busca</summary>
 
-                    <div class="campo">
-                        <label for="isbn">ISBN</label>
-                        <input id="isbn" name="isbn" type="text" placeholder=" " autocomplete="off" maxlength="17"
-                            pattern="(?:[\- ]*\d){9}[\- ]*[\dXx][\- ]*|(?:[\- ]*\d){13}[\- ]*"
-                            title="10 ou 13 dígitos, com ou sem hífens" aria-describedby="ajuda-isbn erro-isbn">
-                        <p class="ajuda" id="ajuda-isbn">Código do livro, na contracapa. 10 ou 13 dígitos, com ou sem
-                            hífens.</p>
-                        <p class="erro" id="erro-isbn"><span class="icone-erro" aria-hidden="true">!</span> O ISBN deve
-                            ter 10 ou 13 dígitos. Confira o número digitado.</p>
-                    </div>
+                        <div class="campo">
+                            <div class="rotulo-isbn">
+                                <label for="isbn">ISBN</label>
+                                <button class="botao-isbn" type="button" aria-label="O que é o ISBN?"
+                                    aria-describedby="explica-isbn">?</button>
+                                <span class="explica-isbn" id="explica-isbn" role="tooltip">Código que identifica a
+                                    edição do livro. Costuma ficar na contracapa.</span>
+                            </div>
+
+                            <input id="isbn" name="isbn" type="text" placeholder=" " autocomplete="off" maxlength="17"
+                                pattern="(?:[\- ]*\d){9}[\- ]*[\dXx][\- ]*|(?:[\- ]*\d){13}[\- ]*"
+                                title="10 ou 13 dígitos, com ou sem hífens" aria-describedby="ajuda-isbn erro-isbn">
+
+                            <p class="ajuda" id="ajuda-isbn">10 ou 13 dígitos, com ou sem hífens.</p>
+
+                            <p class="erro" id="erro-isbn"><span class="icone-erro" aria-hidden="true">!</span> O ISBN
+                                deve
+                                ter 10 ou 13 dígitos. Confira o número digitado.</p>
+                        </div>
+                    </details>
 
                     <div class="acoes">
                         <button class="botao botao-principal buscar-ativo" type="submit">Buscar obras</button>
-                       <button class="botao botao-principal buscar-inativo" type="button" aria-disabled="true">Buscar obras</button>
+                        <button class="botao botao-principal buscar-inativo" type="button" aria-disabled="true"
+                            aria-describedby="situacao">Buscar obras</button>
                         <button class="botao botao-secundario limpar" type="button">Limpar campos</button>
                     </div>
 
                     <p class="situacao" role="status">
-                        <span class="situacao-vazio">Preencha ao menos um campo para buscar.</span>
+                        <span class="situacao-vazio">Preencha pelo menos um campo para buscar.</span>
                         <span class="situacao-invalido">Corrija o ISBN para buscar.</span>
-                        <span class="situacao-pronto">Tudo certo. Você já pode buscar.</span>
                     </p>
                 </form>
 
@@ -85,7 +98,8 @@
                         <li>Letras maiúsculas e acentos <strong>não fazem diferença.</strong></li>
                         <li>O <strong>ISBN</strong> é um código que identifica cada edição de um livro. <strong>Costuma
                                 ficar na contracapa</strong>, perto do código de barras, ou nas primeiras páginas.
-                            <strong>Pode ser digitado com ou sem hífens.</strong></li>
+                            <strong>Pode ser digitado com ou sem hífens.</strong>
+                        </li>
                         <li><strong>Dica:</strong> se souber o ISBN, use somente ele. É o caminho mais direto até a
                             edição certa.</li>
                     </ul>
@@ -121,7 +135,6 @@
         <dialog id="modal-limpar" class="modal modal-confirmar" aria-labelledby="titulo-limpar"
             aria-describedby="texto-limpar">
             <h3 id="titulo-limpar">Tem certeza que deseja limpar todos os campos?</h3>
-            <p id="texto-limpar">O que você digitou será apagado.</p>
             <form method="dialog" class="confirmar-acoes">
                 <button class="botao botao-secundario" type="submit" value="cancelar" autofocus>Continuar
                     editando</button>
