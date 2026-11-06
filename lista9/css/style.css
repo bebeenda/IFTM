@@ -314,3 +314,38 @@ body:has(.modal[open]) { overflow: hidden; }
   html { scroll-behavior: auto; }
 }
 
+summary {
+  font-weight: bold;
+}
+
+.buscar-inativo {
+  color: var(--azul-escuro);
+  background: var(--coral);
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.buscar-inativo:hover {
+  color: var(--pessego);
+  background: var(--azul-escuro);
+  border: 2px solid transparent;
+}
+
+.buscar-inativo,
+.buscar-inativo:hover {
+  color: #4a5560;
+  background: #d9dee3;
+  border: 2px solid #7a848c;
+  cursor: not-allowed;
+}
+
+.ajuda-geral summary {
+  color: #4b2e83;
+
+}
+
+.ajuda-geral summary:hover {
+  color: #4b2e83;
+  text-decoration: underline;
+  
+}
