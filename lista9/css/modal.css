@@ -139,3 +139,111 @@
 .painel.tentou-buscar .situacao-vazio {
   color: #b00020;
 }
+
+.buscar-ativo {
+  color: #fffaf7;
+  background: var(--azul-escuro);
+}
+
+.buscar-ativo:hover {
+  color: var(--azul-escuro);
+  background: var(--azul-medio);
+}
+
+.rotulo-isbn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .25rem;
+}
+
+.rotulo-isbn label { margin: 0; }
+
+.botao-isbn {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  color: #fffaf7;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--azul-escuro);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.botao-isbn:hover { background: #4b2e83; }
+
+.rotulo-isbn {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: .4rem;
+  margin-bottom: .25rem;
+}
+
+.rotulo-isbn label { margin: 0; }
+
+.botao-isbn {
+  position: relative;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
+  color: #fffaf7;
+  font: inherit;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--azul-escuro);
+  border: 0;
+  border-radius: 50%;
+  cursor: help;
+}
+
+/* Amplia a área de toque sem aumentar o desenho */
+.botao-isbn::after {
+  content: "";
+  position: absolute;
+  inset: -.25rem;
+}
+
+.explica-isbn {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: calc(100% + .4rem);
+  width: min(19rem, calc(100vw - 2rem));
+  padding: .6rem .8rem;
+  color: #fffaf7;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.35;
+  background: var(--azul-escuro);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%);
+  transition: opacity .15s;
+}
+
+.botao-isbn:hover + .explica-isbn,
+.botao-isbn:focus + .explica-isbn,
+.explica-isbn:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 48rem) {
+  .explica-isbn {
+    top: calc(100% + .4rem);
+    left: 0;
+    width: min(16rem, calc(100vw - 6rem));
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explica-isbn { transition: none; }
+}
